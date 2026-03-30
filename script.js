@@ -116,8 +116,12 @@ const modal = document.getElementById('join-modal');
 
 function openModal() {
     if(!modal) return;
-    modal.classList.remove('modal-hidden');
-    modal.classList.add('modal-visible');
+    modal.classList.remove('hidden');
+    // small timeout to allow display:block to apply before animating opacity
+    setTimeout(() => {
+        modal.classList.remove('modal-hidden');
+        modal.classList.add('modal-visible');
+    }, 10);
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
@@ -126,6 +130,9 @@ function closeModal() {
     modal.classList.remove('modal-visible');
     modal.classList.add('modal-hidden');
     document.body.style.overflow = '';
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300); // wait for fade out
 }
 
 // Close modal when clicking outside
