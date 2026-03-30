@@ -1,0 +1,70 @@
+/* Custom Styles */
+
+@layer utilities {
+    .glass {
+        @apply bg-white/70 backdrop-blur-lg border border-white/20 dark:bg-dark-surface/70 dark:border-slate-700/50 shadow-xl;
+    }
+    
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400;
+    }
+
+    .reveal {
+        @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+    }
+
+    .reveal.active {
+        @apply opacity-100 translate-y-0;
+    }
+}
+
+/* Animations that are complex for Tailwind config */
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+.counter-plus::after {
+    content: '+';
+    @apply text-primary-600 dark:text-primary-400;
+}
+
+/* Smooth Scrolling Offset for Fixed Header */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* 80px (h-20) */
+}
+
+/* Modal Overlay Animation */
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-hidden .modal-content {
+    transform: translateY(-20px) scale(0.95);
+}
+
+.modal-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-visible .modal-content {
+    transform: translateY(0) scale(1);
+}

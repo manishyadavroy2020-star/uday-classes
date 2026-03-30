@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uday Thakur Commerce Classes | Build Your Commerce Future</title>
+    <meta name="description" content="Expert guidance in Accounts, Economics & Business Studies with proven results. 10+ Years Experience.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6',
+                            600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a', 950: '#172554',
+                        },
+                        dark: {
+                            base: '#0f172a', surface: '#1e293b', elevated: '#334155'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans transition-colors duration-300 dark:bg-dark-base dark:text-slate-100 antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/70 dark:bg-dark-base/80 border-b border-slate-200 dark:border-slate-800" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600 to-indigo-600 flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg shadow-primary-500/30">UT</div>
+                        <span class="font-heading font-bold text-xl md:text-2xl tracking-tight hidden sm:block">Uday <span class="text-primary-600 dark:text-primary-400">Thakur</span></span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+                    <a href="#subjects" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Subjects</a>
+                    <a href="#why-us" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Why Us</a>
+                    <a href="#results" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Results</a>
+                    <a href="#reviews" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Reviews</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors rounded-full hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle Dark Mode">
+                        <!-- Icon injected by JS -->
+                    </button>
+                    <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 bg-primary-600 border border-transparent rounded-full shadow-lg shadow-primary-500/30 hover:bg-primary-700">
+                        Join Now
+                    </button>
+                    <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-dark-surface border-b border-slate-200 dark:border-slate-800 shadow-xl absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">About</a>
+                <a href="#subjects" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">Subjects</a>
+                <a href="#why-us" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">Why Us</a>
+                <a href="#results" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">Results</a>
+                <a href="#reviews" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">Reviews</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg">Contact</a>
+                <div class="pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
+                    <button onclick="openModal(); document.getElementById('mobile-menu').classList.add('hidden');" class="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-white transition-all bg-primary-600 rounded-lg hover:bg-primary-700">
+                        Join Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-400/20 dark:bg-primary-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 animate-blob"></div>
+            <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-indigo-400/20 dark:bg-purple-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-5"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left reveal active">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6 border border-primary-100 dark:border-primary-800/50">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        </span>
+                        Admission Open
+                    </div>
+                    <p class="text-primary-600 dark:text-primary-400 font-bold uppercase tracking-wider text-sm mb-4">Uday Thakur Commerce Classes</p>
+                    <h1 class="text-5xl lg:text-7xl font-bold font-heading text-slate-900 dark:text-white leading-tight mb-6">
+                        Build Your <br class="hidden lg:block"/>
+                        <span class="text-gradient">Commerce Future</span><br/>
+                        With Confidence.
+                    </h1>
+                    <p class="text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Expert guidance in Accounts, Economics & Business Studies with proven results. Master concepts, not just bookish knowledge.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+                        <button onclick="openModal()" class="px-8 py-4 bg-primary-600 text-white rounded-full font-semibold text-lg shadow-lg shadow-primary-500/30 hover:bg-primary-700 hover:shadow-primary-500/50 transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                            Join Now
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                        <a href="#contact" class="px-8 py-4 bg-white dark:bg-dark-surface text-slate-900 dark:text-white rounded-full font-semibold text-lg shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-2">
+                            Contact Us
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center justify-center lg:justify-start gap-8 border-t border-slate-200 dark:border-slate-800 pt-8">
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white font-heading counter-plus">10</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Years Experience</p>
+                        </div>
+                        <div class="w-px h-12 bg-slate-200 dark:bg-slate-800"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white font-heading counter-plus">2000</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Successful Students</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block animate-float reveal active">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-indigo-500/20 rounded-3xl blur-2xl transform -rotate-6"></div>
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students in Classroom" class="relative rounded-3xl shadow-2xl border bg-white dark:border-slate-700 object-cover h-[600px] w-full z-10">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-4 flex items-center gap-4 z-20">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">Topper's Choice</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Consistent Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-dark-surface border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative reveal">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Teacher interacting with students" class="rounded-2xl shadow-xl">
+                    <div class="absolute top-4 -right-4 bg-primary-600 text-white p-6 rounded-2xl shadow-xl max-w-[200px]">
+                        <p class="text-4xl font-bold font-heading mb-1">10+</p>
+                        <p class="text-sm font-medium opacity-90">Years of Shaping Careers in Commerce</p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <h2 class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase text-sm mb-2">About Us</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Empowering Students Through Complete Concept Clarity.</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                        At Uday Thakur Commerce Classes, we believe that education is not just about passing exams—it's about understanding the core concepts that build a strong foundation for your future career.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                        With over a decade of experience, we provide result-oriented teaching with personal attention to every student. Our methodology bridges the gap between theoretical knowledge and practical application, ensuring you walk into the exam hall with absolute confidence.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-slate-700 dark:text-slate-200 font-medium">Concept-focused approach over rote learning</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-slate-700 dark:text-slate-200 font-medium">Personalized mentoring for board examinations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="py-20 relative bg-slate-50 dark:bg-dark-base">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase text-sm mb-2">Our Offerings</h2>
+                <h3 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white mb-4">Master the Core Subjects</h3>
+                <p class="text-slate-600 dark:text-slate-300">We specialize in essential commerce subjects, delivering deep insights and simple explanations for complex topics.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Accounts -->
+                <div class="group bg-white dark:bg-dark-surface rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary-500/10 hover:border-primary-500/30 transition-all duration-300 transform hover:-translate-y-2 reveal">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="calculator" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Accounts</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">From journal entries to company accounts, build a flawless understanding of financial accounting principles.</p>
+                </div>
+
+                <!-- Business Studies -->
+                <div class="group bg-white dark:bg-dark-surface rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-500/30 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="briefcase" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Business Studies</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Understand management, marketing, and business environment with real-world case studies.</p>
+                </div>
+
+                <!-- Economics -->
+                <div class="group bg-white dark:bg-dark-surface rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-green-500/10 hover:border-green-500/30 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Economics</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Micro and Macro economics simplified through practical examples and clear graphical explanations.</p>
+                </div>
+
+                <!-- Costing -->
+                <div class="group bg-white dark:bg-dark-surface rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-500/30 transition-all duration-300 transform hover:-translate-y-2 reveal md:col-start-1 lg:col-start-2">
+                    <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pie-chart" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Costing</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Master cost calculation, budgeting, and cost control mechanisms required for higher studies.</p>
+                </div>
+
+                <!-- Tax -->
+                <div class="group bg-white dark:bg-dark-surface rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-red-500/10 hover:border-red-500/30 transition-all duration-300 transform hover:-translate-y-2 reveal lg:col-start-3" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Tax</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Direct and Indirect taxation frameworks taught in a structured and easy-to-grasp logical flow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-white dark:bg-dark-surface border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase text-sm mb-2">Our Methodology</h2>
+                <h3 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white mb-4">Why Students Trust Us</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-slate-50 dark:bg-dark-base rounded-2xl border border-slate-100 dark:border-slate-800 reveal">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Concept-Based</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">We teach in simple language, focusing on clarity rather than memorization.</p>
+                </div>
+
+                <div class="p-6 bg-slate-50 dark:bg-dark-base rounded-2xl border border-slate-100 dark:border-slate-800 reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Regular Tests</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Frequent mock tests and doubt clearing sessions to continuously track your progress.</p>
+                </div>
+
+                <div class="p-6 bg-slate-50 dark:bg-dark-base rounded-2xl border border-slate-100 dark:border-slate-800 reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Personal Attention</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Every student is monitored so nobody falls behind in the competitive crowd.</p>
+                </div>
+
+                <div class="p-6 bg-slate-50 dark:bg-dark-base rounded-2xl border border-slate-100 dark:border-slate-800 reveal" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="medal" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Proven Track Record</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">A history of producing school and state level toppers in commerce subjects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Overview -->
+    <section id="results" class="py-20 bg-gradient-to-br from-slate-900 to-primary-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white reveal">
+            <h3 class="text-3xl md:text-5xl font-bold font-heading mb-6">Our Legacy of Excellence</h3>
+            <p class="text-lg text-primary-100 mb-12 max-w-2xl mx-auto">Year after year, our students break records and secure admissions into top colleges across the country.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="p-4">
+                    <p class="text-4xl md:text-5xl font-bold font-heading mb-2 counter-plus text-primary-400"><span class="counter-value" data-target="2000">0</span></p>
+                    <p class="text-sm uppercase tracking-wide opacity-80">Students Passed</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-4xl md:text-5xl font-bold font-heading mb-2 counter-plus text-primary-400"><span class="counter-value" data-target="500">0</span></p>
+                    <p class="text-sm uppercase tracking-wide opacity-80">90%+ Scorers</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-4xl md:text-5xl font-bold font-heading mb-2 counter-plus text-primary-400"><span class="counter-value" data-target="10">0</span></p>
+                    <p class="text-sm uppercase tracking-wide opacity-80">Years Excellence</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-4xl md:text-5xl font-bold font-heading mb-2 text-primary-400"><span class="counter-value" data-target="100">0</span>%</p>
+                    <p class="text-sm uppercase tracking-wide opacity-80">Concept Clarity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="py-20 bg-slate-50 dark:bg-dark-base border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase text-sm mb-2">Student Stories</h2>
+                <h3 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white mb-4">Hear From Our Achievers</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white dark:bg-dark-surface p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 reveal">
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 italic">"I was struggling with Accounts, especially adjustments. Sir's methodology is so clear that I never had to mug up formats again. Scored 96 in Boards!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">R</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Rahul Sharma</p>
+                            <p class="text-xs text-slate-500">CBSE Class 12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white dark:bg-dark-surface p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 reveal" style="transition-delay: 100ms;">
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 italic">"Economics theory always felt boring until I joined here. The real-world examples given in class make Economics the most scoring subject."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold">P</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Priya Banerjee</p>
+                            <p class="text-xs text-slate-500">ICSE Class 12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white dark:bg-dark-surface p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 reveal" style="transition-delay: 200ms;">
+                    <div class="flex gap-1 text-yellow-400 mb-4">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 italic">"The personal attention and frequent doubt classes saved my results. Sir ensures no concept is left unclear. Highly recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 font-bold">A</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">Aditya Gupta</p>
+                            <p class="text-xs text-slate-500">WBSE Class 12</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Let's shape your future together</h2>
+                    <p class="text-slate-600 dark:text-slate-300 mb-8">Reach out to us to book your seat. Feel free to visit our centers or contact us via phone or WhatsApp.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Center 1</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Main Gate, Durgapur,<br>West Bengal 713203</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Center 2</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">2/36A, Srinagar Pally, Michael Sarani,<br>Benachity, Durgapur, West Bengal 713213</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <a href="tel:+919614507478" class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 dark:group-hover:bg-blue-900 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Phone Call</h4>
+                                <span class="text-slate-600 dark:text-slate-400 text-sm group-hover:text-blue-600 transition-colors">+91 96145 07478</span>
+                            </div>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/919614507478" target="_blank" class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 dark:group-hover:bg-green-900 transition-colors">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">WhatsApp</h4>
+                                <span class="text-slate-600 dark:text-slate-400 text-sm group-hover:text-green-600 transition-colors">+91 96145 07478</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal bg-slate-50 dark:bg-dark-base p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-lg">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Ready to Start?</h3>
+                        <p class="text-slate-600 dark:text-slate-400">Join 2000+ students who achieved brilliant results.</p>
+                    </div>
+                    <button onclick="openModal()" class="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold shadow-lg shadow-primary-500/30 transition-all flex items-center justify-center gap-2">
+                        Enroll Now
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+
+                    <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+                        <p class="text-sm font-medium text-slate-900 dark:text-white mb-4">Follow our journey:</p>
+                        <div class="flex gap-4">
+                            <a href="https://www.instagram.com/trader_uday19" target="_blank" class="w-10 h-10 bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-700 text-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-sm">
+                                <i class="fa-brands fa-instagram text-lg"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/1Sj4toAoWC/" target="_blank" class="w-10 h-10 bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-700 text-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-sm">
+                                <i class="fa-brands fa-facebook-f text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-600 to-indigo-600 flex items-center justify-center text-white font-heading font-bold text-sm">UT</div>
+                    <span class="font-heading font-bold text-lg text-slate-900 dark:text-white">Uday Thakur Commerce Classes</span>
+                </div>
+                <div class="text-slate-500 dark:text-slate-400 text-sm text-center md:text-left">
+                    &copy; 2026 Uday Thakur Commerce Classes. All rights reserved.
+                </div>
+                <div>
+                    <!-- The theme toggle button ensures light/dark logic is available in footer. The script handles it via the button at the top, we just apply standard UI footer text -->
+                    <span class="text-xs text-slate-400">Design built with ❤️ for Education</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Now Modal -->
+    <div id="join-modal" class="fixed inset-0 z-[100] modal-hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity modal-overlay"></div>
+
+        <div class="flex min-h-screen items-center justify-center p-4 text-center sm:p-0">
+            <!-- Modal Content -->
+            <div class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-dark-surface text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg modal-content border border-slate-100 dark:border-slate-800">
+                <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                
+                <div class="px-6 pb-6 pt-8 sm:px-8 sm:pt-10">
+                    <div class="mb-8 text-center">
+                        <div class="mx-auto w-12 h-12 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 dark:text-white" id="modal-title">Join Commerce Classes</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Fill in your details below. We'll chat on WhatsApp!</p>
+                    </div>
+
+                    <form id="join-form" class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-dark-base text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="e.g. Rahul Sharma">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-dark-base text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="+91 xxxxx xxxxx">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="class" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Class</label>
+                                <select id="class" required class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-dark-base text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all">
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="11">Class 11</option>
+                                    <option value="12">Class 12</option>
+                                    <option value="Foundation">Foundation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="board" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Board</label>
+                                <select id="board" required class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-dark-base text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all">
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="CBSE">CBSE</option>
+                                    <option value="ICSE">ICSE</option>
+                                    <option value="WBSE">WBSE</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <button type="submit" class="w-full py-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-xl font-bold shadow-lg shadow-[#25D366]/30 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                Send on WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script that must load last -->
+    <script src="js/script.js"></script>
+</body>
+</html>
